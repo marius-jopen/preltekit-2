@@ -1,4 +1,4 @@
-import { createClient } from '$lib/prismicio';
+import { createClient } from '$lib/prismicio.js';
 
 export const prerender = true;
 

@@ -13,7 +13,7 @@ export const repositoryName = config.repositoryName;
  *
  * @type {prismic.ClientConfig["routes"]}
  */
-const routes = [
+export const routes = [
 	{
 		type: 'page',
 		path: '/:uid'
@@ -32,6 +32,19 @@ const routes = [
 		path: '/'
 	}
 ];
+
+export const linkResolver = (document) => {
+  console.log(document)
+  switch (document.type) {
+    case ("page"):
+      if (document.uid === "home") return "/"
+      return "/" + document.uid
+    case ("settings"):
+    case ("navigation"):
+    default:
+      return "/"
+  }
+}
 
 /**
  * Creates a Prismic client for the project's repository. The client is used to
