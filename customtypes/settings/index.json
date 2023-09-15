@@ -15,6 +15,37 @@
 					"single": "heading1"
 				}
 			}
+		},
+		"SEO & Metadata": {
+			"meta_language": {
+				"type": "Text",
+				"config": {
+					"label": "Meta Language",
+					"placeholder": ""
+				}
+			},
+			"meta_title": {
+				"type": "Text",
+				"config": {
+					"label": "Meta Title",
+					"placeholder": ""
+				}
+			},
+			"meta_description": {
+				"type": "Text",
+				"config": {
+					"label": "Meta Description",
+					"placeholder": ""
+				}
+			},
+			"meta_image": {
+				"type": "Image",
+				"config": {
+					"label": "Meta Image",
+					"constraint": {},
+					"thumbnails": []
+				}
+			}
 		}
 	}
 }
