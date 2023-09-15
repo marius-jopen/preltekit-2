@@ -166,7 +166,29 @@ interface SettingsDocumentData {
 	 * - **Tab**: Main
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
-	siteTitle: prismic.TitleField
+	siteTitle: prismic.TitleField;
+
+	/**
+	 * Error Message field in *Settings*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.error_message
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	error_message: prismic.RichTextField;
+
+	/**
+	 * Error Image field in *Settings*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.error_image
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	error_image: prismic.ImageField<never>
 	/**
 	 * Meta Language field in *Settings*
 	 *
