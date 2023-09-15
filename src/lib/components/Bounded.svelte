@@ -12,12 +12,12 @@
 	{...$$restProps}
 	class={clsx(
 		'px-6',
-		yPadding === 'xs' && 'py-4 md:py-4',
-		yPadding === 'sm' && 'py-8 md:py-10',
-		yPadding === 'base' && 'py-20 md:py-28',
-		yPadding === 'lg' && 'py-32 md:py-48',
+		yPadding === 'xs' && 'pb-4 md:pb-4',
+		yPadding === 'sm' && 'pb-8 md:pb-10',
+		yPadding === 'base' && 'pb-12 md:pb-14',
+		yPadding === 'lg' && 'pb-20 md:pb-28',
 		$$props.class
 	)}
 >
-	<div class="mx-auto w-full max-w-6xl"><slot /></div>
+	<div class="mx-auto w-full max-w-6xl "><slot /></div>
 </svelte:element>

@@ -11,14 +11,18 @@
     let sitemap = true
 </script>
 
-<Bounded tag="header" yPadding="xs">
-	<div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none text-sm tracking-tight">
-		<a href="/" class="">
+<Bounded 
+	tag="footer" 
+	class="!pt-0"
+	yPadding="xs"
+>
+	<div class="flex-col-reverse tablet:flex-row flex flex-wrap  items-baseline justify-between gap-x-6 gap-y-3 leading-none text-sm tracking-tight text-center tablet:text-left">
+		<a href="/" class="w-full tablet:w-auto pt-8 tablet:pt-0">
 			© <PrismicText field={settings.data.siteTitle} />, {new Date().getFullYear() }
 		</a>
 
-		<nav>
-			<ul class="flex flex-wrap gap-6 md:gap-10">
+		<nav class="w-full tablet:w-auto">
+			<ul class="flex flex-wrap gap-4 tablet:gap-10 flex-col tablet:flex-row">
 				{#each navigation.data?.links as item}
 					<li class="">
 						<PrismicLink field={item.link}>

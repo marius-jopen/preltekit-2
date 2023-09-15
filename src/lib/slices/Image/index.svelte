@@ -13,7 +13,7 @@
 
 <Bounded
 	tag="section"
-	class={clsx('bg-white', index === 0 && 'pt-0 md:pt-0')}
+	yPadding="base"
 	data-slice-type={slice.slice_type}
 	data-slice-variation={slice.variation}
 >
