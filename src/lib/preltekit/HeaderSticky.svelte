@@ -22,7 +22,7 @@
 			<PrismicText field={settings.data.siteTitle} />
 		</a>
 
-		<nav>
+		<nav class="block bg-red-200 md:bg-blue-200">
 			<ul class="flex flex-wrap gap-6 md:gap-10">
 				{#each navigation.data?.links as item}
 					<li class="font-semibold tracking-tight text-slate-800">
@@ -34,7 +34,7 @@
 			</ul>
 		</nav>
 
-        <div class="block md:hidden">
+        <div class="">
             <Hamburger bind:open type="squeeze" --layer-height="2px" --padding="0px" />
         </div>
 	</div>
