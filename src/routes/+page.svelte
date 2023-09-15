@@ -1,8 +1,7 @@
 <script>
 	import { SliceZone } from '@prismicio/svelte';
-
 	import { components } from '$lib/slices';
-  import Seo from "$lib/preltekit/seo.svelte"
+	import Seo from "$lib/preltekit/seo.svelte"
 
 	export let data;
 </script>
