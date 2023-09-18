@@ -50,11 +50,17 @@ export const linkResolver = (document) => {
  *
  * @param {prismic.ClientConfig} config - Configuration for the Prismic client.
  */
-export const createClient = (config = {}) => {
-	const client = prismic.createClient(repositoryName, {
-		routes,
-		...config
-	});
+export const createClient = ({ request, fetch } = {}) => {
+  const clientOptions = {
+    fetch,
+    routes,
+  }
+  const client = prismic.createClient(repositoryName, clientOptions)
+  
+  if (request) {
+    client.enableAutoPreviewsFromReq(request);
+  }
 
-	return client;
-};
+  return client
+}
+

@@ -6,11 +6,10 @@ import { error } from "@sveltejs/kit"
 
 export async function GET({ url, fetch, request }) {
 	const client = createClient({ fetch, request })
-	const previewToken = url.searchParams.get('token')
-
-  console.log(linkResolver, previewToken)
 
   try {
+
+    const previewToken = url.searchParams.get('token')
     const previewURL = await client.resolvePreviewURL({ linkResolver, defaultURL: '/' })
     
     const headers = new Headers({
@@ -24,6 +23,8 @@ export async function GET({ url, fetch, request }) {
       status: 307,
       headers,
     })
+
+    
 
     return response
   } catch (err) {
