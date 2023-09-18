@@ -54,7 +54,9 @@ export const createClient = ({ request, fetch } = {}) => {
   const clientOptions = {
     fetch,
     routes,
+    enableAutoPreviews: true
   }
+
   const client = prismic.createClient(repositoryName, clientOptions)
   
   if (request) {
