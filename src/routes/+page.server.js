@@ -2,12 +2,14 @@ import { createClient } from '$lib/prismicio';
 
 export const prerender = true;
 
-export async function load() {
-	const client = createClient();
+export async function load({ fetch, request }) {
+	const client = createClient({ fetch, request });
 
-	const page = await client.getByUID('page', 'home');
+	const document = await client.getByUID('page', 'home');
 
-	return {
-		page
-	};
+  if (document) {
+    return {
+      document
+    };
+  }
 }

@@ -10,7 +10,8 @@
 
 <Bounded
 	as="section"
-	class="bg-white leading-relaxed"
+	yPadding="base"
+	class="leading-relaxed"
 	data-slice-type={slice.slice_type}
 	data-slice-variation={slice.variation}
 >

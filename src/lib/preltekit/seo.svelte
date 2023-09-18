@@ -1,60 +1,35 @@
 <script>
-	import { page } from '$app/stores';
-	import { asText, isFilled } from '@prismicio/helpers';
+	import { page } from '$app/stores'
 
-  const setup = $page.data.setup
+	export let document
 
-	export let document;
-	export let divider = '|';
-	export let withTitle = true;
-
-	let websiteTitle;
-
-	if (setup.data.seo_title && withTitle) {
-		websiteTitle = setup.data.seo_title;
-	} else if (setup.data.website_title && withTitle) {
-		websiteTitle = setup.data.website_title;
-	} else {
-		withTitle = false;
-	}
-
-	let language = setup.seo_language;
+	const settings = $page.data.settings
+	
 	let url = $page.url.href;
+	let language = settings.meta_language
+	let divider = '|'
+	let pageTitle = document.data.meta_title
+	let backupTitle = settings.data.meta_title
+	let pageDescription = document.data.meta_description
+	let backupDescription = settings.data.meta_description
+	let pageImage = document.data.meta_image
+	let backupImage = settings.data.meta_image
 
-	let title = asText(document.data.seo_title)
-		? asText(document.data.seo_title) + ` ${divider} ${asText(websiteTitle)}`
-		: asText(document.data.title)
-		? asText(document.data.title) + ` ${divider} ${asText(websiteTitle)}`
-		: asText(setup.data.seo_title);
-
-	let description = asText(document.data.seo_description)
-		? asText(setup.data.seo_description)
-		: asText(setup.data.seo_description);
-
-	let imageUrl = isFilled.image(document.data.seo_image)
-		? document.data.seo_image.url + '&fm=webp&lossless=true'
-		: setup.data.seo_image.url + '&fm=webp&lossless=true';
-	let imageWidth = isFilled.image(document.data.seo_image)
-		? document.data.seo_image.dimensions.width
-		: 0;
-	let imageHeight = isFilled.image(document.data.seo_image)
-		? document.data.seo_image.dimensions.height
-		: 0;
-	let imageAlt = isFilled.image(document.data.seo_image)
-		? document.data.seo_image.alt
-		: websiteTitle;
+	let title = pageTitle ? pageTitle + ` ${divider} ${backupTitle}` : backupTitle + ` ${divider} ${backupTitle}`
+	let description = pageDescription ? pageDescription : backupDescription
+	let imageUrl = pageImage ? pageImage.url + '&fm=webp&lossless=true' : backupImage.url + '&fm=webp&lossless=true'
+	let imageWidth = pageImage ? pageImage.dimensions.width : backupImage.dimensions.width
+	let imageHeight = pageImage ? pageImage.dimensions.height : backupImage.dimensions.height
+	let imageAlt = pageImage ? pageImage.alt : backupImage.alt
 </script>
 
 <svelte:head>
 	<title>{title}</title>
 
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
 	<meta name="siteUrl" content={url} />
 	<meta name="pageTitle" content={title} />
 	<meta name="description" content={description} />
-	<meta
-		name="robots"
-		content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-	/>
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content={title} />

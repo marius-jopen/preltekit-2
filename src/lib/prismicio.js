@@ -34,11 +34,9 @@ export const routes = [
 ];
 
 export const linkResolver = (document) => {
-  console.log(document)
   switch (document.type) {
     case ("page"):
-      if (document.uid === "home") return "/"
-      return "/" + document.uid
+      return `/${document.uid}`
     case ("settings"):
     case ("navigation"):
     default:

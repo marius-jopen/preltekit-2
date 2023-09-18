@@ -1,23 +1,21 @@
 import { createClient } from '$lib/prismicio.js';
+import { error } from "@sveltejs/kit"
 
 export const prerender = true;
 
-export async function load({ params }) {
-	const client = createClient();
+export async function load({ params, fetch, request }) {
+	const client = createClient({ fetch, request });
 
-	const page = await client.getByUID('page', params.uid);
+  try {
+    const document = await client.getByUID('page', params.uid);
+  
+    if (document) {
+      return {
+        document
+      };
+    }
+  } catch (err) {
+    throw error(404, err?.message)
+  }
 
-	return {
-		page
-	};
-}
-
-export async function entries() {
-	const client = createClient();
-
-	const pages = await client.getAllByType('page');
-
-	return pages.map((page) => {
-		return { uid: page.uid };
-	});
 }
