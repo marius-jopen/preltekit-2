@@ -44,7 +44,6 @@
 	</div>
 </Bounded>
 
-
 <!-- Placeholder to push the content down -->
 <Bounded 
 	tag="header" 
